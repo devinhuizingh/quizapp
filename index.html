@@ -2,30 +2,28 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Bible Trivia Quiz</title>
+		<title>Where to Live Quiz</title>
 		<link rel="stylesheet" href="css/style.css"/>
 
 	</head>
 	<body>
 		<div id="quiz">
-			<h1>Bible Trivia</h1>	
-			<h2 class="question">Complete the verse: 'Be not overcome by evil, but overcome evil with…'</h2>
+			<h1>Answer a few simple questions to see where you should live</h1>	
+			<h2 class="question">It is the end of February and you decide to take a week long vacation.  Where do you go?
+			</h2>
 			<form class="answers">
 				<input type="radio" name="answer" value ='0'></input>
-				<span id="choice0">Love</span><br>
+				<span id="choice0">Hit the slopes, head to the nearest ski resort</span><br>
 				<input type="radio" name="answer" value ='1'></input>
-				<span id= "choice1">Good</span><br>
-				<input type="radio" name="answer" value ='2'></input>
-				<span id="choice2">Kindness</span><br>
-				<input type="radio" name="answer" value ='3'></input>
-				<span id= "choice3">Forgiveness</span><br>
-				<span id= "4"><input type="submit" value="That's my final answer" /> </span><br>
+				<span id= "choice1">I’m so sick of winter… I’m going to Mexico for some beach and relaxing</span><br>
+				
+				<span id= "3"><input type="submit" value="That's my final answer" /> </span><br>
 				
 			</form>
 			
-			<div class ="right-or-wrong"></div>
+			<div class ="cold-or-warm"></div>
 			<div class ="reset"><button>Take it again</button></div>
-			
+			<div id="map"></div>
 
 			
 
@@ -36,6 +34,8 @@
 
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPjdBo-Fwkh0hrkdMjgGR_LMnWlXWxaBg"
+         async defer></script>
 		<script type="text/javascript" src="js/script.js"></script>
 	</body>
 </html>

@@ -2,35 +2,30 @@ $(document).ready(function() {
 
 var questions = [
 		{
-        question: "Complete the verse: 'Be not overcome by evil, but overcome evil with…'",
-        choices: ["Love", "Good", "Kindness", "Forgiveness"],
+        question: "It is the end of February and you decide to take a week long vacation.  Where do you go?",
+        choices: ["Hit the slopes, head to the nearest ski resort", "I’m so sick of winter… I’m going to Mexico for some beach and relaxing"],
         qNum : 0,
-        correct : 1,
+        
         },
         {
-        question: "What happened to Barjesus (Elymas) when he opposed Paul and Barnabas?",
-        choices: ["he became blind", "he was unable to speak", "they cast the demon out of him", "he fell over dead"],
+        question: "What would you rather wear??",
+        choices: ["A hoodie and sweatpants", "Shorts and a t-shirt"],
         qNum : 1,
-        correct : 0,
+        
         },
         {
-        question: "How was the wood Solomon needed to build the temple and his palace transported to Jerusalem?",
-        choices: ["by rafts on the sea and then carried on land", "on the backs of slaves", "using oxen and men", "it was floated down the river Jericho"],
+        question: "What is your preferred footwear?",
+        choices: ["Snow Boots", "Flip flops"],
         qNum : 2,
-        correct : 0,
+        
         },
-        {
-        question: "Who wrote the book of James?",
-        choices: ["Paul", "Peter", "John", "James"],
-        qNum : 3,
-        correct : 3,
-        }
         ];
 
 currentQuestion = 0;
 selectedAnswer = 1;
-correctAnswer = 1;
-answeredRight = 0;
+cold = 0;
+warm = 0;
+
 
 $(".answers").submit(function(e){
         e.preventDefault();
@@ -40,17 +35,30 @@ $(".answers").submit(function(e){
 
         selectedAnswer = $('input[name=answer]:checked').val();
         
-        if (selectedAnswer == correctAnswer) {
-                $(".right-or-wrong").html("That is Correct!")
+        if (selectedAnswer == 0) {
+                cold++;
                         }
-        else if(selectedAnswer != correctAnswer) {
-                $(".right-or-wrong").html("Incorrect")
+        else if(selectedAnswer == 1) {
+                warm++
 
         };
-        if (selectedAnswer == correctAnswer) {
-                answeredRight++
-        };
-        
+        console.log(warm);
+        console.log(cold)
+        if (warm > cold) {
+              $("body").addClass("warm");
+              $("body").removeClass("cold");
+              $("body").removeClass("neutral")
+        }
+        else if (cold > warm) {
+                $("body").addClass("cold");
+                $("body").removeClass("warm");
+                $("body").removeClass("neutral")
+        }  
+        else if (cold=warm) {
+                $("body").addClass("neutral");
+                $("body").removeClass("warm");
+                $("body").removeClass("cold")
+        }
         
         if (currentQuestion < questions.length-1) {
                 currentQuestion++;
@@ -65,14 +73,43 @@ $(".answers").submit(function(e){
                 $('input[name=answer]').attr('checked',false);
 
         }
+        
+
         else if (currentQuestion >= questions.length-1) {
-                $(".right-or-wrong").html("You finished! " + "You got " + answeredRight + " out of " + questions.length + " correct!")
-                $(".reset").show()
+                if (warm > cold) {
+                   $(".cold-or-warm").html("You finished! You should move to Hawaii") 
+                   $(".reset").show();
+                   
+                   initMapWarm(); 
+                   }
+                   
+                
+                else if (cold > warm) {
+                   $(".cold-or-warm").html("You finished! You should move to Alaska") 
+                   $(".reset").show();
+                   
+                   initMapCold(); 
+                }
         };
+        function initMapWarm() {
+                        var mapDiv = document.getElementById('map');
+                        var map = new google.maps.Map(mapDiv, {
+                                center: {lat: 21.471538, lng: -158.002682}, 
+                                zoom: 7
+                        });
+                   }; 
+        function initMapCold() {
+                        var mapDiv = document.getElementById('map');
+                        var map = new google.maps.Map(mapDiv, {
+                                center: {lat: 65.186329, lng: -150.886182}, 
+                                zoom: 4
+                        });
+                   }; 
+
 });
 
 $("button").click(function() {
-        console.log("reset is working");
+        
         document.location.reload(true);
 
 })
