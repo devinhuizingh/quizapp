@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    
 var questions = [
 		{
         question: "It is the end of February and you decide to take a week long vacation.  Where do you go?",
@@ -27,6 +28,7 @@ cold = 0;
 warm = 0;
 
 
+
 $(".answers").submit(function(e){
         e.preventDefault();
        
@@ -42,8 +44,7 @@ $(".answers").submit(function(e){
                 warm++
 
         };
-        console.log(warm);
-        console.log(cold)
+        
         if (warm > cold) {
               $("body").addClass("warm");
               $("body").removeClass("cold");
@@ -81,15 +82,22 @@ $(".answers").submit(function(e){
                    $(".reset").show();
                    
                    initMapWarm(); 
+                   $(".warmend").show();
+                   $(".coldend").hide();
+                   initWarmWeather()
                    }
+                   
                    
                 
                 else if (cold > warm) {
-                   $(".cold-or-warm").html("You finished! You should move to Alaska") 
-                   $(".reset").show();
+                    $(".cold-or-warm").html("You finished! You should move to Alaska") 
+                    $(".reset").show();
                    
                    initMapCold(); 
-                }
+                    $(".coldend").show();
+                    $(".warmend").hide();
+                    initColdWeather()
+                    }
         };
         function initMapWarm() {
                         var mapDiv = document.getElementById('map');
@@ -105,6 +113,18 @@ $(".answers").submit(function(e){
                                 zoom: 4
                         });
                    }; 
+
+        function initColdWeather() {
+            currentcold = '<a href="http://www.accuweather.com/en/us/anchorage-ak/99501/weather-forecast/346835" class="aw-widget-legal"></a><div id="awcc1460997020824" class="aw-widget-current"  data-locationkey="346835" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1460997020824"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>'    
+            $(".coldend").html(currentcold);       
+        }; 
+        function initWarmWeather() {
+            currentwarm = '<a href="http://www.accuweather.com/en/us/honolulu-hi/96817/weather-forecast/348211" class="aw-widget-legal"></a><div id="awcc1460996637665" class="aw-widget-current"  data-locationkey="348211" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1460996637665"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>'
+            $(".warmend").html(currentwarm);
+        };
+
+
+
 
 });
 
