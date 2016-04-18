@@ -36,13 +36,13 @@ body{
 	max-width: 500px;
 	background-color: lightgrey;
 	font-family: 'Lora', serif;
+	padding: 20px;
 	
 	}
 
-.result {
-	position:relative;
-	float:left;
-	width: 500px
+.cold-or-warm {
+	margin: 20px;
+    font-size: 1.8em;
 }
 
 .reset {
@@ -57,14 +57,14 @@ body{
 }
 
 #map {
-	width: 500px;
+	width: 540px;
     height: 400px;
     margin: 0 auto;
 }
 
 .coldend, .warmend {
 	margin: 0 auto;
-	width: 500px;
+	width: 540px;
 }
 
  button, input[type=submit] {
