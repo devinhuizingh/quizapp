@@ -1,7 +1,7 @@
 
 body{
 	
-	background-image: url('images/bluesky.jpg');
+	background-image: url('http://devinhuizingh.github.io/quizapp/images/bluesky.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
   
@@ -12,19 +12,19 @@ body{
 
 }
 .warm{
-	background-image: url('images/hawaii.jpg');
+	background-image: url('http://devinhuizingh.github.io/quizapp/images/hawaii.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 .cold{
-	background-image: url('images/alaska.jpg');
+	background-image: url('http://devinhuizingh.github.io/quizapp/images/alaska.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 .neutral {
-	background-image: url('images/bluesky.jpg');
+	background-image: url('http://devinhuizingh.github.io/quizapp/images/bluesky.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
