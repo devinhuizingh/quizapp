@@ -11,6 +11,11 @@ body{
   min-height: 100%;
 
 }
+
+.pad {
+	margin-top: 12px
+}
+
 .warm{
 	background-image: url('http://devinhuizingh.github.io/quizapp/images/hawaii.jpg');
 	background-size: cover;
@@ -29,16 +34,26 @@ body{
 	background-repeat: no-repeat;
 }
 
-
-#quiz {
-	text-align: center;
+.forcenter {
+	display: table;
+	width: 100%;
+	width: 540px;
 	margin: 0 auto;
-	max-width: 500px;
+}
+#quiz {
+	margin: 0 auto;
+	
 	background-color: lightgrey;
 	font-family: 'Lora', serif;
 	padding: 20px;
+	display: table-cell;
+  	
+  	vertical-align: middle;
 	
 	}
+.answers {
+	text-align: left;
+}
 
 .cold-or-warm {
 	margin: 20px;
@@ -70,7 +85,7 @@ body{
  button, input[type=submit] {
     background-color: white;
     border-color: #ccc;
-        display: inline-block;
+    display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 14px;
@@ -79,9 +94,46 @@ body{
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-   
-    cursor: pointer;
-    
+   cursor: pointer;
     border: 1px solid transparent;
     border-radius: 4px;
 }
+
+
+
+.thermometer1 {
+	margin: 0 auto;
+	outline: solid white 1px;
+	width: 90%;
+	height: 30px;
+	background: linear-gradient(to right, red, blue 5% )
+}
+.thermometer2 {
+	margin: 0 auto;
+	outline: solid white 1px;
+	width: 90%;
+	height: 30px;
+	background: linear-gradient(to right, red , blue 35% )
+}
+.thermometer3 {
+	margin: 0 auto;
+	outline: solid white 1px;
+	width: 90%;
+	height: 30px;
+	background: linear-gradient(to right, red, blue)
+}
+.thermometer4 {
+	margin: 0 auto;
+	outline: solid white 1px;
+	width: 90%;
+	height: 30px;
+	background: linear-gradient(to right, red 65%, blue)
+}
+.thermometer5 {
+	margin: 0 auto;
+	outline: solid white 1px;
+	width: 90%;
+	height: 30px;
+	background: linear-gradient(to right, red 95%, blue)
+}
+

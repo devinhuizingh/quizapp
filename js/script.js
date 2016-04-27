@@ -26,6 +26,7 @@ currentQuestion = 0;
 selectedAnswer = 1;
 cold = 0;
 warm = 0;
+temp = 3;
 
 
 
@@ -39,23 +40,29 @@ $(".answers").submit(function(e){
         
         if (selectedAnswer == 0) {
                 cold++;
-                        }
+                temp--;
+        }
         else if(selectedAnswer == 1) {
-                warm++
-
+                warm++;
+                temp++;
         };
         
         if (warm > cold) {
+              
               $("body").addClass("warm");
               $("body").removeClass("cold");
               $("body").removeClass("neutral")
         }
+        
         else if (cold > warm) {
+                
                 $("body").addClass("cold");
                 $("body").removeClass("warm");
                 $("body").removeClass("neutral")
         }  
+        
         else if (cold=warm) {
+                $(".meter").addClass("thermometer3")
                 $("body").addClass("neutral");
                 $("body").removeClass("warm");
                 $("body").removeClass("cold")
@@ -72,7 +79,7 @@ $(".answers").submit(function(e){
                         $('#'+index).html(questions[currentQuestion].choices[i]);
                 }
                 $('input[name=answer]').attr('checked',false);
-
+                
         }
         
 
@@ -86,8 +93,6 @@ $(".answers").submit(function(e){
                    $(".coldend").hide();
                    initWarmWeather()
                    }
-                   
-                   
                 
                 else if (cold > warm) {
                     $(".cold-or-warm").html("You finished! You should move to Alaska") 
@@ -99,6 +104,46 @@ $(".answers").submit(function(e){
                     initColdWeather()
                     }
         };
+
+        if (temp==3){
+            $('.meter').addClass('thermometer3');
+            $('.meter').removeClass('thermometer1');
+            $('.meter').removeClass('thermometer2');
+            $('.meter').removeClass('thermometer4');
+            $('.meter').removeClass('thermometer5');
+        }
+        else if (temp==2) {
+            $('.meter').addClass('thermometer2');
+            $('.meter').removeClass('thermometer1');
+            $('.meter').removeClass('thermometer3');
+            $('.meter').removeClass('thermometer4');
+            $('.meter').removeClass('thermometer5');
+        } 
+        else if (temp==1) {
+            $('.meter').addClass('thermometer1');
+            $('.meter').removeClass('thermometer2');
+            $('.meter').removeClass('thermometer3');
+            $('.meter').removeClass('thermometer4');
+            $('.meter').removeClass('thermometer5');
+        }
+        else if (temp==4){
+            $('.meter').addClass('thermometer4');
+            $('.meter').removeClass('thermometer1');
+            $('.meter').removeClass('thermometer2');
+            $('.meter').removeClass('thermometer3');
+            $('.meter').removeClass('thermometer5');
+        }
+        else if (temp==5){
+            $('.meter').addClass('thermometer5');
+            $('.meter').removeClass('thermometer1');
+            $('.meter').removeClass('thermometer2');
+            $('.meter').removeClass('thermometer3');
+            $('.meter').removeClass('thermometer4');
+        }
+        
+
+
+
         function initMapWarm() {
                         var mapDiv = document.getElementById('map');
                         var map = new google.maps.Map(mapDiv, {
@@ -122,6 +167,7 @@ $(".answers").submit(function(e){
             currentwarm = '<a href="http://www.accuweather.com/en/us/honolulu-hi/96817/weather-forecast/348211" class="aw-widget-legal"></a><div id="awcc1460996637665" class="aw-widget-current"  data-locationkey="348211" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1460996637665"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>'
             $(".warmend").html(currentwarm);
         };
+       
 
 
 
