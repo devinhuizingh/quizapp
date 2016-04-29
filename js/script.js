@@ -68,7 +68,7 @@ $(".answers").submit(function(e){
                 $("body").removeClass("cold")
         }
         
-        if (currentQuestion < questions.length-1) {
+        if (currentQuestion < questions.length-1 && selectedAnswer) {
                 currentQuestion++;
 
                 //get question
@@ -83,7 +83,7 @@ $(".answers").submit(function(e){
         }
         
 
-        else if (currentQuestion >= questions.length-1) {
+        else if (currentQuestion >= questions.length-1 && selectedAnswer) {
                 if (warm > cold) {
                    $(".cold-or-warm").html("You finished! You should move to Hawaii") 
                    $(".reset").show();
@@ -103,46 +103,26 @@ $(".answers").submit(function(e){
                     $(".warmend").hide();
                     initColdWeather()
                     }
+                    $('input[name=answer]').attr('checked',false);
         };
 
-        if (temp==3){
-            $('.meter').addClass('thermometer3');
-            $('.meter').removeClass('thermometer1');
-            $('.meter').removeClass('thermometer2');
-            $('.meter').removeClass('thermometer4');
-            $('.meter').removeClass('thermometer5');
+        if (warm-cold==0){
+            $('.meter').css('background', 'linear-gradient(to right, red, blue)')
         }
-        else if (temp==2) {
-            $('.meter').addClass('thermometer2');
-            $('.meter').removeClass('thermometer1');
-            $('.meter').removeClass('thermometer3');
-            $('.meter').removeClass('thermometer4');
-            $('.meter').removeClass('thermometer5');
-        } 
-        else if (temp==1) {
-            $('.meter').addClass('thermometer1');
-            $('.meter').removeClass('thermometer2');
-            $('.meter').removeClass('thermometer3');
-            $('.meter').removeClass('thermometer4');
-            $('.meter').removeClass('thermometer5');
+        else if (warm-cold==1){
+            $('.meter').css('background', 'linear-gradient(to right, red 65%, blue)')
         }
-        else if (temp==4){
-            $('.meter').addClass('thermometer4');
-            $('.meter').removeClass('thermometer1');
-            $('.meter').removeClass('thermometer2');
-            $('.meter').removeClass('thermometer3');
-            $('.meter').removeClass('thermometer5');
+        else if (warm-cold==2){
+            $('.meter').css('background', 'linear-gradient(to right, red 95%, blue)')
         }
-        else if (temp==5){
-            $('.meter').addClass('thermometer5');
-            $('.meter').removeClass('thermometer1');
-            $('.meter').removeClass('thermometer2');
-            $('.meter').removeClass('thermometer3');
-            $('.meter').removeClass('thermometer4');
+        else if (warm-cold==-1){
+            $('.meter').css('background', 'linear-gradient(to right, red , blue 35%)')
         }
+        else if (warm-cold==-2){
+            $('.meter').css('background', 'linear-gradient(to right, red, blue 5%)')
+        };
+
         
-
-
 
         function initMapWarm() {
                         var mapDiv = document.getElementById('map');
